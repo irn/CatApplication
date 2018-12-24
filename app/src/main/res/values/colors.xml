@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="backgroundPressed">#8e870f</color>
-    <color name="backgroundDefault">#04d3f7</color>
+    <color name="backgroundDefault">#04d3f6</color>
+    <color name="newColor">#86f704</color>
 </resources>
