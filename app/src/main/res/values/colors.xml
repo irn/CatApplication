@@ -5,8 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="backgroundPressed">#8e870f</color>
     <color name="backgroundDefault">#04d3f6</color>
-    <color name="newColor">#86fd04</color>
+    <color name="newColor">#86f704</color>
     <color name="secondColor">#0479f7</color>
-    <color name="myColor">#954514</color>
-    <color name="mySecondColor">#4645df</color>
 </resources>
