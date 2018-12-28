@@ -142,3 +142,9 @@ fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
 
+/.gradle/
+.idea/codeStyles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
