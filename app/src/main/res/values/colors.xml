@@ -4,8 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="backgroundPressed">#8e870f</color>
-    <color name="backgroundDefault">#04d3f6</color>
+    <color name="backgroundDefault">#f60455</color>
     <color name="newColor">#86f704</color>
-    <color name="secondColor">#0479f7</color>
-    <color name="thirdColor">#209c3b</color>
+    <color name="secondColor">#223243</color>
 </resources>
