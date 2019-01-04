@@ -25,12 +25,12 @@ public class CatDatabase_Impl extends CatDatabase {
 
   @Override
   protected SupportSQLiteOpenHelper createOpenHelper(DatabaseConfiguration configuration) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(configuration, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(SupportSQLiteDatabase _db) {
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `Cat` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `age` INTEGER NOT NULL, `name` TEXT, `breed` TEXT, `imageUrl` TEXT, `description` TEXT)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `Cat` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `age` INTEGER NOT NULL, `name` TEXT, `breed` TEXT, `imageUrl` TEXT, `description` TEXT, `gender` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"dbfe1007038bcdea061cb0e321bdea39\")");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9e80c3cbdc5a897174e94a172a5682b4\")");
       }
 
       @Override
@@ -60,13 +60,14 @@ public class CatDatabase_Impl extends CatDatabase {
 
       @Override
       protected void validateMigration(SupportSQLiteDatabase _db) {
-        final HashMap<String, TableInfo.Column> _columnsCat = new HashMap<String, TableInfo.Column>(6);
+        final HashMap<String, TableInfo.Column> _columnsCat = new HashMap<String, TableInfo.Column>(7);
         _columnsCat.put("id", new TableInfo.Column("id", "INTEGER", true, 1));
         _columnsCat.put("age", new TableInfo.Column("age", "INTEGER", true, 0));
         _columnsCat.put("name", new TableInfo.Column("name", "TEXT", false, 0));
         _columnsCat.put("breed", new TableInfo.Column("breed", "TEXT", false, 0));
         _columnsCat.put("imageUrl", new TableInfo.Column("imageUrl", "TEXT", false, 0));
         _columnsCat.put("description", new TableInfo.Column("description", "TEXT", false, 0));
+        _columnsCat.put("gender", new TableInfo.Column("gender", "TEXT", false, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysCat = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesCat = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoCat = new TableInfo("Cat", _columnsCat, _foreignKeysCat, _indicesCat);
@@ -77,7 +78,7 @@ public class CatDatabase_Impl extends CatDatabase {
                   + " Found:\n" + _existingCat);
         }
       }
-    }, "dbfe1007038bcdea061cb0e321bdea39", "aa67080f3793699a9037a84b60e13f33");
+    }, "9e80c3cbdc5a897174e94a172a5682b4", "b38ab6e27f5c4071942024dd847a2409");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

@@ -20,14 +20,15 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="exam.catapp.sourceit.catapplication.MainActivity" >
-        </activity>
+        <activity android:name="exam.catapp.sourceit.catapplication.MainActivity" />
         <activity android:name="exam.catapp.sourceit.catapplication.DetailActivity" />
         <activity
             android:name="exam.catapp.sourceit.catapplication.DetailTabActivity"
             android:label="@string/title_activity_detail_tab"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="exam.catapp.sourceit.catapplication.AnimationActivity" >
+        </activity>
+        <activity android:name="exam.catapp.sourceit.catapplication.CatDrawerActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

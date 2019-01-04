@@ -1,14 +1,14 @@
 [
     {
-        "merged": "/home/adda/Projects/book_ex/CatApplication/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_detail.xml",
-        "source": "/home/adda/Projects/book_ex/CatApplication/app/src/main/res/layout/activity_detail.xml"
+        "merged": "C:\\Users\\AdminDell\\IdeaProjects\\CatApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_cat.xml",
+        "source": "C:\\Users\\AdminDell\\IdeaProjects\\CatApplication\\app\\src\\main\\res\\layout\\fragment_cat.xml"
     },
     {
-        "merged": "/home/adda/Projects/book_ex/CatApplication/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_cat.xml",
-        "source": "/home/adda/Projects/book_ex/CatApplication/app/src/main/res/layout/item_cat.xml"
+        "merged": "C:\\Users\\AdminDell\\IdeaProjects\\CatApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_detail.xml",
+        "source": "C:\\Users\\AdminDell\\IdeaProjects\\CatApplication\\app\\src\\main\\res\\layout\\activity_detail.xml"
     },
     {
-        "merged": "/home/adda/Projects/book_ex/CatApplication/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_cat.xml",
-        "source": "/home/adda/Projects/book_ex/CatApplication/app/src/main/res/layout/fragment_cat.xml"
+        "merged": "C:\\Users\\AdminDell\\IdeaProjects\\CatApplication\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_cat.xml",
+        "source": "C:\\Users\\AdminDell\\IdeaProjects\\CatApplication\\app\\src\\main\\res\\layout\\item_cat.xml"
     }
 ]

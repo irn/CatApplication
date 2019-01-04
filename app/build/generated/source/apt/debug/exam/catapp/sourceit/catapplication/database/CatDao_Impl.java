@@ -28,7 +28,7 @@ public class CatDao_Impl implements CatDao {
     this.__insertionAdapterOfCat = new EntityInsertionAdapter<Cat>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR ABORT INTO `Cat`(`id`,`age`,`name`,`breed`,`imageUrl`,`description`) VALUES (nullif(?, 0),?,?,?,?,?)";
+        return "INSERT OR ABORT INTO `Cat`(`id`,`age`,`name`,`breed`,`imageUrl`,`description`,`gender`) VALUES (nullif(?, 0),?,?,?,?,?,?)";
       }
 
       @Override
@@ -54,6 +54,11 @@ public class CatDao_Impl implements CatDao {
           stmt.bindNull(6);
         } else {
           stmt.bindString(6, value.getDescription());
+        }
+        if (value.getGender() == null) {
+          stmt.bindNull(7);
+        } else {
+          stmt.bindString(7, value.getGender());
         }
       }
     };
@@ -82,6 +87,7 @@ public class CatDao_Impl implements CatDao {
       final int _cursorIndexOfBreed = _cursor.getColumnIndexOrThrow("breed");
       final int _cursorIndexOfImageUrl = _cursor.getColumnIndexOrThrow("imageUrl");
       final int _cursorIndexOfDescription = _cursor.getColumnIndexOrThrow("description");
+      final int _cursorIndexOfGender = _cursor.getColumnIndexOrThrow("gender");
       final List<Cat> _result = new ArrayList<Cat>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final Cat _item;
@@ -104,6 +110,9 @@ public class CatDao_Impl implements CatDao {
         final String _tmpDescription;
         _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
         _item.setDescription(_tmpDescription);
+        final String _tmpGender;
+        _tmpGender = _cursor.getString(_cursorIndexOfGender);
+        _item.setGender(_tmpGender);
         _result.add(_item);
       }
       return _result;
@@ -139,6 +148,7 @@ public class CatDao_Impl implements CatDao {
           final int _cursorIndexOfBreed = _cursor.getColumnIndexOrThrow("breed");
           final int _cursorIndexOfImageUrl = _cursor.getColumnIndexOrThrow("imageUrl");
           final int _cursorIndexOfDescription = _cursor.getColumnIndexOrThrow("description");
+          final int _cursorIndexOfGender = _cursor.getColumnIndexOrThrow("gender");
           final List<Cat> _result = new ArrayList<Cat>(_cursor.getCount());
           while(_cursor.moveToNext()) {
             final Cat _item;
@@ -161,6 +171,9 @@ public class CatDao_Impl implements CatDao {
             final String _tmpDescription;
             _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
             _item.setDescription(_tmpDescription);
+            final String _tmpGender;
+            _tmpGender = _cursor.getString(_cursorIndexOfGender);
+            _item.setGender(_tmpGender);
             _result.add(_item);
           }
           return _result;
@@ -204,6 +217,7 @@ public class CatDao_Impl implements CatDao {
           final int _cursorIndexOfBreed = _cursor.getColumnIndexOrThrow("breed");
           final int _cursorIndexOfImageUrl = _cursor.getColumnIndexOrThrow("imageUrl");
           final int _cursorIndexOfDescription = _cursor.getColumnIndexOrThrow("description");
+          final int _cursorIndexOfGender = _cursor.getColumnIndexOrThrow("gender");
           final Cat _result;
           if(_cursor.moveToFirst()) {
             _result = new Cat();
@@ -225,8 +239,84 @@ public class CatDao_Impl implements CatDao {
             final String _tmpDescription;
             _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
             _result.setDescription(_tmpDescription);
+            final String _tmpGender;
+            _tmpGender = _cursor.getString(_cursorIndexOfGender);
+            _result.setGender(_tmpGender);
           } else {
             _result = null;
+          }
+          return _result;
+        } finally {
+          _cursor.close();
+        }
+      }
+
+      @Override
+      protected void finalize() {
+        _statement.release();
+      }
+    }.getLiveData();
+  }
+
+  @Override
+  public LiveData<List<Cat>> getCatsByGender(String gender) {
+    final String _sql = "select * from Cat where gender=?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    if (gender == null) {
+      _statement.bindNull(_argIndex);
+    } else {
+      _statement.bindString(_argIndex, gender);
+    }
+    return new ComputableLiveData<List<Cat>>() {
+      private Observer _observer;
+
+      @Override
+      protected List<Cat> compute() {
+        if (_observer == null) {
+          _observer = new Observer("Cat") {
+            @Override
+            public void onInvalidated(@NonNull Set<String> tables) {
+              invalidate();
+            }
+          };
+          __db.getInvalidationTracker().addWeakObserver(_observer);
+        }
+        final Cursor _cursor = __db.query(_statement);
+        try {
+          final int _cursorIndexOfId = _cursor.getColumnIndexOrThrow("id");
+          final int _cursorIndexOfAge = _cursor.getColumnIndexOrThrow("age");
+          final int _cursorIndexOfName = _cursor.getColumnIndexOrThrow("name");
+          final int _cursorIndexOfBreed = _cursor.getColumnIndexOrThrow("breed");
+          final int _cursorIndexOfImageUrl = _cursor.getColumnIndexOrThrow("imageUrl");
+          final int _cursorIndexOfDescription = _cursor.getColumnIndexOrThrow("description");
+          final int _cursorIndexOfGender = _cursor.getColumnIndexOrThrow("gender");
+          final List<Cat> _result = new ArrayList<Cat>(_cursor.getCount());
+          while(_cursor.moveToNext()) {
+            final Cat _item;
+            _item = new Cat();
+            final int _tmpId;
+            _tmpId = _cursor.getInt(_cursorIndexOfId);
+            _item.setId(_tmpId);
+            final int _tmpAge;
+            _tmpAge = _cursor.getInt(_cursorIndexOfAge);
+            _item.setAge(_tmpAge);
+            final String _tmpName;
+            _tmpName = _cursor.getString(_cursorIndexOfName);
+            _item.setName(_tmpName);
+            final String _tmpBreed;
+            _tmpBreed = _cursor.getString(_cursorIndexOfBreed);
+            _item.setBreed(_tmpBreed);
+            final String _tmpImageUrl;
+            _tmpImageUrl = _cursor.getString(_cursorIndexOfImageUrl);
+            _item.setImageUrl(_tmpImageUrl);
+            final String _tmpDescription;
+            _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+            _item.setDescription(_tmpDescription);
+            final String _tmpGender;
+            _tmpGender = _cursor.getString(_cursorIndexOfGender);
+            _item.setGender(_tmpGender);
+            _result.add(_item);
           }
           return _result;
         } finally {
