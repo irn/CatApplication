@@ -83,6 +83,7 @@ public class LoadAsyncTask extends AsyncTask<Void, Void, List<Cat>> {
     private CatDatabase initializeDatabase(){
         CatDatabase catDatabase = Room.
                 databaseBuilder(context, CatDatabase.class, "cats.db").
+                addMigrations(CatDatabase.MIGRATION_1_2).
                 build();
         return catDatabase;
 

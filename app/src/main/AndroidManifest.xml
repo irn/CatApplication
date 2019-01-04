@@ -11,15 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".DetailActivity" />
         <activity
             android:name=".DetailTabActivity"
             android:label="@string/title_activity_detail_tab"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AnimationActivity">
+
+        </activity>
+        <activity android:name=".CatDrawerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
