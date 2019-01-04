@@ -27,6 +27,9 @@ public interface CatDao {
     @Query("select * from Cat where id=:catId")
     LiveData<Cat> getCat(int catId);
 
+    @Query("select * from Cat where gender=:gender")
+    LiveData<List<Cat>> getCatsByGender(String gender);
+
     @Insert
     void insertCat(List<Cat> cats);
 }

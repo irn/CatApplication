@@ -30,6 +30,11 @@ public class CatRecycleAdapter extends RecyclerView.Adapter<CatRecycleAdapter.Ca
 
     }
 
+    public void setData(List<Cat> catList){
+        this.catList = catList;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public CatViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

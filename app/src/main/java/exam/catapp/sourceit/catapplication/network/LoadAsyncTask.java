@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import exam.catapp.sourceit.catapplication.database.CatDatabase;
+import exam.catapp.sourceit.catapplication.database.DBinitialize;
 import exam.catapp.sourceit.catapplication.model.Cat;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -81,10 +82,13 @@ public class LoadAsyncTask extends AsyncTask<Void, Void, List<Cat>> {
     }
 
     private CatDatabase initializeDatabase(){
-        CatDatabase catDatabase = Room.
-                databaseBuilder(context, CatDatabase.class, "cats.db").
-                build();
-        return catDatabase;
+        return DBinitialize.initialize(context);
+
+//        CatDatabase catDatabase = Room.
+//                databaseBuilder(context, CatDatabase.class, "cats.db").
+//                addMigrations(CatDatabase.MIGRATION_1_2).
+//                build();
+//        return catDatabase;
 
     }
 
