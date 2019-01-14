@@ -8,4 +8,9 @@
     <color name="newColor">#86f704</color>
     <color name="secondColor">#0479f7</color>
     <color name="myColor">#654</color>
+    <color name="backgrountPress">#00ff1e</color>
+    <color name="backgrountDefalt">#1bdfbb</color>
+    <color name="backgrountNew">#1bdfbb</color>
+    <color name="backgrountNewVersion2">#1bdfbb</color>
+
 </resources>

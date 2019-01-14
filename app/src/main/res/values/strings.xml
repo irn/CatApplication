@@ -7,4 +7,17 @@
     <string name="hello_">New string fragment</string>
     <string name="button">Commit</string>
 
+
+    <string name="list_cat">List of cats received from the server: </string>
+    <string name="update_list">Update list </string>
+    <string name="cat_name">Имя </string>
+    <string name="cat_breed">Порода </string>
+    <string name="cat_age">Возраст </string>
+    <string name="cat_description">Описание </string>
+    <string name="text_info">Для просмотра других котов используйте перемещения влево или вправо </string>
+    <string name="text_VP">Подробнее о всех котах </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_splash">SplashActivity</string>
+
 </resources>
