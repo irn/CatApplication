@@ -14,10 +14,32 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
+
+        </activity>
+
+        <activity android:name=".CatDetailActivity" />
+        <activity
+            android:name=".DetailTabActivity"
+            android:label="@string/title_activity_detail_tab"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AnimationActivity" />
+        <activity
+            android:name=".CatDrawerActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".HelpActivity"
+            android:noHistory="true">
+
         </activity>
     </application>
 
